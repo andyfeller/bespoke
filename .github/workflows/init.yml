@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: Event info
         run: |
-          jq ${{ github.event_path }}
+          jq '.' ${{ github.event_path }}
 
   init_example_a_engagement:
     name: Initialize Example A engagement
