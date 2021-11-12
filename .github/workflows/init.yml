@@ -1,6 +1,18 @@
 name: Stack Initialize
 on:
   workflow_dispatch:
+    inputs:
+      customer_name:
+        description: Name of customer this repository is for.
+        required: true
+
+      init_example_a_engagement:
+        description: Whether to initialize example A engagement.
+        required: false
+
+      init_example_b_engagement:
+        description: Whether to initialize example C engagement.
+        required: false
 jobs:
   dump_info:
     name: Dump workflow information
