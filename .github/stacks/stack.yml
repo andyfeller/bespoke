@@ -26,13 +26,5 @@ inputs:
       - yes
       - no
 
-configs:
-  repo-metadata:
-    parameters:
-      description: Customer repository
-
-  branches:
-    - name: main
-
 init:
   uses: init.yml
