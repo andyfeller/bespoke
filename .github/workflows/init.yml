@@ -33,15 +33,13 @@ jobs:
         id: project
         run: |
           project_id="$(gh api repos/{owner}/{repo}/projects --field name='Example A Engagement' --jq '.id')"
-
-          echo "Created project $project_id"
           echo "::set-output name=project_id::$project_id"
 
       - name: Create project column(s)
         env:
           PROJECT: ${{ steps.project.outputs.project_id }}
         run: |
-          gh api projects/{project}/columns --field project=$PROJECT --field name="Backlog"
-          gh api projects/{project}/columns --field project=$PROJECT --field name="To Do"
-          gh api projects/{project}/columns --field project=$PROJECT --field name="In Progress"
-          gh api projects/{project}/columns --field project=$PROJECT --field name="Done"
+          gh api projects/$PROJECT/columns --field name="Backlog"
+          gh api projects/$PROJECT/columns --field name="To Do"
+          gh api projects/$PROJECT/columns --field name="In Progress"
+          gh api projects/$PROJECT/columns --field name="Done"
