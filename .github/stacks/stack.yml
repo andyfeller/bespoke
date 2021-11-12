@@ -13,6 +13,7 @@ inputs:
   - name: init_example_a_engagement
     description: Whether to initialize example A engagement.
     default: no
+    type: boolean
     validvalues:
       - yes
       - no
@@ -20,6 +21,7 @@ inputs:
   - name: init_example_b_engagement
     description: Whether to initialize example C engagement.
     default: no
+    type: boolean
     validvalues:
       - yes
       - no

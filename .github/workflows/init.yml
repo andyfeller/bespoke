@@ -5,7 +5,7 @@ jobs:
   init_example_a_engagement:
     name: Initialize Example A engagement
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.init_example_a_engagement == 'yes' }}
+    if: ${{ github.event.inputs.init_example_a_engagement }}
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
