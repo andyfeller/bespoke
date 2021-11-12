@@ -2,6 +2,8 @@ version: 0.1.0
 
 name: Customer Repository Stack
 description: This is a stack to demonstrate how Stacks could be used for initializing repositories framing customer engagements.
+branding:
+  color: black
 
 inputs:
   - name: customer_name
@@ -26,6 +28,9 @@ configs:
   repo-metadata:
     parameters:
       description: Customer repository
+
+  branches:
+    - name: main
 
 init:
   uses: init.yml
