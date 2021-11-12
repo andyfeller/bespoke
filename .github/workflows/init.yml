@@ -10,9 +10,6 @@ on:
         description: Whether to initialize example A engagement.
         required: false
 
-      init_example_b_engagement:
-        description: Whether to initialize example C engagement.
-        required: false
 jobs:
   dump_info:
     name: Dump workflow information

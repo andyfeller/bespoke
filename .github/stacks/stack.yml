@@ -12,11 +12,10 @@ inputs:
 
   - name: init_example_a_engagement
     description: Whether to initialize example A engagement.
-    type: boolean
-
-  - name: init_example_b_engagement
-    description: Whether to initialize example C engagement.
-    type: boolean
+    default: "no"
+    validvalues:
+      - "yes"
+      - "no"
 
 init:
   uses: init.yml
