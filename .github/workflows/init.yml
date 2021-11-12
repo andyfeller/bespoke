@@ -2,10 +2,38 @@ name: Stack Initialize
 on:
   workflow_dispatch:
 jobs:
+  dump_info:
+    name: Dump workflow information
+    runs-on: ubuntu-latest
+    steps:
+      - name: Acknowledge
+        uses: actions/github-script@v5
+        with:
+          script: |
+
+            const body = `
+            I am actively looking into the following and will let you know how it goes!
+
+            <details>
+              <summary>GitHub Event Payload</summary>
+
+              \`\`\`json
+              ${{ toJson(github.event) }}
+              \`\`\`
+            </details>
+            `
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body
+            })
+
   init_example_a_engagement:
     name: Initialize Example A engagement
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.init_example_a_engagement }}
+    #  if: ${{ github.event.inputs.init_example_a_engagement }}
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
