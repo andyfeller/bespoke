@@ -6,29 +6,9 @@ jobs:
     name: Dump workflow information
     runs-on: ubuntu-latest
     steps:
-      - name: Acknowledge
-        uses: actions/github-script@v5
-        with:
-          script: |
-
-            const body = `
-            I am actively looking into the following and will let you know how it goes!
-
-            <details>
-              <summary>GitHub Event Payload</summary>
-
-              \`\`\`json
-              ${{ toJson(github.event) }}
-              \`\`\`
-            </details>
-            `
-
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body
-            })
+      - name: Event info
+        run: |
+          jq ${{ github.event_path }}
 
   init_example_a_engagement:
     name: Initialize Example A engagement
@@ -43,7 +23,7 @@ jobs:
       - name: Create project board
         id: project
         run: |
-          project_id=$(gh api repos/{owner}/{repo}/projects --field name="Example A Engagement" --jq '.id')
+          project_id="$(gh api repos/{owner}/{repo}/projects --field name="Example A Engagement" --jq '.id')"
 
           echo "::set-output name=project_id::$project_id"
 
