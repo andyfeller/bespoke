@@ -4,12 +4,28 @@ name: Customer Repository Stack
 description: This is a stack to demonstrate how Stacks could be used for initializing repositories framing customer engagements.
 
 inputs:
-  - name: INIT_SAMPLE_ENGAGEMENT
-    description: Whether to initialize sample engagement.
+  - name: customer_name
+    description: Name of customer this repository is for.
+    required: true
+
+  - name: init_example_a_engagement
+    description: Whether to initialize example A engagement.
     default: no
     validvalues:
       - yes
       - no
+
+  - name: init_example_b_engagement
+    description: Whether to initialize example C engagement.
+    default: no
+    validvalues:
+      - yes
+      - no
+
+configs:
+  repo-metadata:
+    parameters:
+      description: Customer repository
 
 init:
   uses: init.yml
