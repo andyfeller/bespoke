@@ -9,11 +9,18 @@ on:
       init_example_a_engagement:
         description: Whether to initialize example A engagement.
         required: false
+        default: "no"
+
+      debug:
+        description: Whether to display debug information.
+        required: false
+        default: "no"
 
 jobs:
   dump_info:
     name: Dump workflow information
     runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.debug == 'yes' }}
     steps:
       - name: Event info
         run: |
@@ -39,7 +46,13 @@ jobs:
         env:
           PROJECT: ${{ steps.project.outputs.project_id }}
         run: |
-          gh api projects/$PROJECT/columns --field name="Backlog"
-          gh api projects/$PROJECT/columns --field name="To Do"
-          gh api projects/$PROJECT/columns --field name="In Progress"
-          gh api projects/$PROJECT/columns --field name="Done"
+          columns=(
+            'Backlog',
+            'To Do',
+            'In Progress',
+            'Done'
+          )
+
+          for column in "${columns[@]}"; do
+            gh api projects/$PROJECT/columns --field name=$column
+          done
