@@ -47,9 +47,9 @@ jobs:
           PROJECT: ${{ steps.project.outputs.project_id }}
         run: |
           columns=(
-            'Backlog',
-            'To Do',
-            'In Progress',
+            'Backlog'
+            'To Do'
+            'In Progress'
             'Done'
           )
 
