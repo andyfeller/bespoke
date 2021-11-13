@@ -54,5 +54,5 @@ jobs:
           )
 
           for column in "${columns[@]}"; do
-            gh api projects/$PROJECT/columns --field name=$column;
+            gh api projects/$PROJECT/columns --field name="$column"
           done
