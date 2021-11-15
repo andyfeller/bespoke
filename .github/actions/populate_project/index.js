@@ -85,8 +85,8 @@ async function run() {
                 for (const issueConfig of issueConfigs) {
 
                     // Create issue based on templated content
-                    const issueTitle = handlerbars.template(issueConfig.title);
-                    const issueBody = handlerbars.template(issueConfig.body);
+                    const issueTitle = handlerbars.compile(issueConfig.title);
+                    const issueBody = handlerbars.compile(issueConfig.body);
                     const column = (issueConfig.column) ? columnNameLookup[issueConfig.column] : defaultColumn;
 
                     const { data: issue } = await octokit.rest.issues.create({
