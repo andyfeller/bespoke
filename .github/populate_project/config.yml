@@ -1,0 +1,19 @@
+projects:
+  - name: Example Engagement
+    body: |
+      This is a project board that might be created for a customer engagement.
+
+    columns:
+      - Backlog
+      - To Do
+      - In Progress
+      - Done
+
+  - name: Another Example
+    body: |
+      Stub description of project.
+
+    columns:
+      - A
+      - B
+      - C

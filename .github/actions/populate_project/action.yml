@@ -1,0 +1,17 @@
+name: Populate Project
+description: Create GitHub project, columns, and issues based on external input
+inputs:
+  config-dir:
+    description: Path to directory containing config.yml file
+    default: .github/populate_project
+    required: true
+  fail-fast:
+    description: Whether to fail if any project fails to be created
+    default: no
+    required: true
+  github-token:
+    description: GitHub personal access token used for API interactions
+    required: true
+runs:
+  using: node12
+  main: index.js

@@ -10,8 +10,8 @@ inputs:
     description: Name of customer this repository is for.
     required: true
 
-  - name: init_example_a_engagement
-    description: Whether to initialize example A engagement.
+  - name: init_engagements
+    description: Whether to initialize engagements.
     validvalues:
       - "yes"
       - "no"

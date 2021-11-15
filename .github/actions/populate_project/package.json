@@ -1,0 +1,17 @@
+{
+  "name": "populate_project",
+  "version": "1.0.0",
+  "description": "Create GitHub project, columns, and issues based on external input",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@actions/core": "^1.6.0",
+    "@actions/github": "^5.0.0",
+    "js-yaml": "^4.1.0"
+  }
+}

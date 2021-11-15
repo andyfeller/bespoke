@@ -6,8 +6,8 @@ on:
         description: Name of customer this repository is for.
         required: true
 
-      init_example_a_engagement:
-        description: Whether to initialize example A engagement.
+      init_engagements:
+        description: Whether to initialize engagements.
         required: false
         default: "no"
 
@@ -26,33 +26,15 @@ jobs:
         run: |
           jq '.' ${{ github.event_path }}
 
-  init_example_a_engagement:
-    name: Initialize Example A engagement
+  init_engagements:
+    name: Initialize engagement(s)
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.init_example_a_engagement == 'yes' }}
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    if: ${{ github.event.inputs.init_engagements == 'yes' }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Create project board
-        id: project
-        run: |
-          project_id="$(gh api repos/{owner}/{repo}/projects --field name='Example A Engagement' --jq '.id')"
-          echo "::set-output name=project_id::$project_id"
-
-      - name: Create project column(s)
-        env:
-          PROJECT: ${{ steps.project.outputs.project_id }}
-        run: |
-          columns=(
-            'Backlog'
-            'To Do'
-            'In Progress'
-            'Done'
-          )
-
-          for column in "${columns[@]}"; do
-            gh api projects/$PROJECT/columns --field name="$column"
-          done
+      - name: Populate project(s)
+        uses: actions/populate_projects@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
