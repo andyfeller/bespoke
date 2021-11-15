@@ -22,7 +22,7 @@ async function run() {
     const configDir = core.getInput(INPUT_CONFIG_DIR, { required: true });
     const configPath = path.join(configDir, 'config.yml')
 
-    fs.access(configPath, fs.constants.R_OK, (err) => {
+    fs.access(configPath, fs.constants.R_OK, async (err) => {
 
         if (err) {
             // TODO: Log information about what this error means
