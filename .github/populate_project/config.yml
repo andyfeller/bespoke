@@ -17,9 +17,9 @@ projects:
 
       - column: To Do
         title: |
-          {{ github.inputs.customer_name }} introduction
+          {{ github.payload.inputs.customer_name }} introduction
         body: |
-          This should be an introduction with {{ github.inputs.customer_name }}.
+          This should be an introduction with {{ github.payload.inputs.customer_name }}.
 
   - name: Another Example
     body: |

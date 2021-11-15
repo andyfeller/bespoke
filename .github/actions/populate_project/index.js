@@ -104,7 +104,7 @@ async function run() {
                         content_id: issue.id,
                     })
 
-                    console.log(`Created project card (${card.id}) to ${card.content_type} (${card.content_id}) for project "${project.name}" (${project.id})`);
+                    console.log(`Created project card (${card.id}) to ${card.content_url} for project "${project.name}" (${project.id})`);
                 }
             } catch (err) {
                 success = false;
