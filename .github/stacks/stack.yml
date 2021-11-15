@@ -12,15 +12,13 @@ inputs:
 
   - name: init_engagements
     description: Whether to initialize engagements.
-    validvalues:
-      - "yes"
-      - "no"
+    type: boolean
+    default: "true"
 
   - name: debug
     description: Whether to display debug information.
-    validvalues:
-      - "no"
-      - "yes"
+    type: boolean
+    default: "false"
 
 init:
   uses: init.yml

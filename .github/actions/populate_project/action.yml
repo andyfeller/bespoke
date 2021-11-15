@@ -5,8 +5,12 @@ inputs:
     description: Path to directory containing config.yml file
     default: .github/populate_project
     required: true
+  debug:
+    description: Boolean whether to log debug information
+    default: "false"
+    required: true
   fail-fast:
-    description: Whether to fail if any project fails to be created
+    description: Boolean whether to fail if any project fails to be created
     default: "false"
     required: true
   github-token:

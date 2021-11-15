@@ -9,6 +9,18 @@ projects:
       - In Progress
       - Done
 
+    issues:
+      - title: |
+          Backlog item
+        body: |
+          Stubbed text for generic backlog issue.
+
+      - column: To Do
+        title: |
+          {{ github.inputs.customer_name }} introduction
+        body: |
+          This should be an introduction with {{ github.inputs.customer_name }}.
+
   - name: Another Example
     body: |
       Stub description of project.
