@@ -7,7 +7,7 @@ inputs:
     required: true
   fail-fast:
     description: Whether to fail if any project fails to be created
-    default: no
+    default: "false"
     required: true
   github-token:
     description: GitHub personal access token used for API interactions
