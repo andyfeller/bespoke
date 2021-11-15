@@ -4,11 +4,11 @@ const INPUT_FAIL_FAST = 'fail-fast';
 const INPUT_GITHUB_TOKEN = 'github-token';
 
 // Imports
-import * as core from "@actions/core";
-import * as github from "@actions/github";
-import * as fs from "fs";
-import * as path from "path";
-import * as yaml from "js-yaml";
+const core = require('@actions/core');
+const github = require('@actions/github');
+const fs = require('fs');
+const path = require('path');
+const yaml = require('js-yaml');
 
 async function run() {
 
