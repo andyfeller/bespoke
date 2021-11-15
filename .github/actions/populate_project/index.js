@@ -32,6 +32,7 @@ async function run() {
         // For projects configured, create supported resources
         const config = yaml.load(fs.readFileSync(configPath));
         let success = true;
+        console.dir(config);
 
         for (const project of config.projects) {
 
