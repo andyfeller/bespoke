@@ -35,6 +35,6 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Populate project(s)
-        uses: .github/actions/populate_project
+        uses: ./.github/actions/populate_project
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
