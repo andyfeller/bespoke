@@ -37,7 +37,7 @@ async function run() {
 
             try {
                 // Create project
-                const createForRepoResponse = octokit.rest.projects.createForRepo({
+                const { data: createForRepoResponse } = await octokit.rest.projects.createForRepo({
                     ...context.repo,
                     name: project.name,
                     body: project.body,
@@ -47,7 +47,7 @@ async function run() {
 
                 // Create project columns
                 for (const column of project.columns) {
-                    const createColumnResponse = octokit.rest.projects.createColumn({
+                    const { data: createColumnResponse } = await octokit.rest.projects.createColumn({
                         project_id: createForRepoResponse['id'],
                         name: column
                     })
