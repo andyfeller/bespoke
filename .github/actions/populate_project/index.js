@@ -40,7 +40,7 @@ async function run() {
         // Create supported resources For project(s) configured
         let success = true;
         const config = yaml.load(fs.readFileSync(configPath));
-        const projectConfigs = config?.projects ?? [];
+        const projectConfigs = config.projects ?? [];
 
         for (const projectConfig of projectConfigs) {
 
@@ -55,7 +55,7 @@ async function run() {
                 console.log(`Created project "${project.name}" (${project.id})`);
 
                 // Create project column(s)
-                const columnConfigs = projectConfig?.columns ?? [];
+                const columnConfigs = projectConfig.columns ?? [];
                 const columnNameLookup = {};
                 let defaultColumn = null;
 
@@ -75,7 +75,7 @@ async function run() {
                 }
 
                 // Create project issues
-                const issueConfigs = projectConfig?.issues ?? [];
+                const issueConfigs = projectConfig.issues ?? [];
                 const templateData = {
                     github: context,
                     project: project,
@@ -86,7 +86,7 @@ async function run() {
                     // Create issue based on templated content
                     const issueTitle = handlerbars.template(issueConfig.title);
                     const issueBody = handlerbars.template(issueConfig.body);
-                    const column = columnNameLookup[issueConfig?.column] ?? defaultColumn;
+                    const column = (issueConfig.column) ? columnNameLookup[issueConfig.column] : defaultColumn;
 
                     const { data: issue } = await octokit.rest.issues.create({
                         ...context.repo,
