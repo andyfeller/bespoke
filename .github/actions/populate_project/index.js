@@ -16,6 +16,7 @@ async function run() {
     const githubToken = core.getInput(INPUT_GITHUB_TOKEN, { required: true });
     const octokit = github.getOctokit(githubToken);
     const context = github.context;
+    console.dir(context);
 
     // Verify inputs for action configuration
     const failFast = core.getBooleanInput(INPUT_FAIL_FAST);
