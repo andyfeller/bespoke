@@ -15,17 +15,18 @@ const handlerbars = require('handlebars');
 
 async function run() {
 
-    const context = github.context;
-
-    if (debug) {
-        console.debug(`GitHub context: ${util.inspect(context)}`);
-    }
-
     // Verify inputs for action configuration
     const debug = core.getBooleanInput(INPUT_DEBUG);
     const failFast = core.getBooleanInput(INPUT_FAIL_FAST);
     const configDir = core.getInput(INPUT_CONFIG_DIR, { required: true });
     const githubToken = core.getInput(INPUT_GITHUB_TOKEN, { required: true });
+
+    // Capture some information for debugging purposes if necessary
+    const context = github.context;
+
+    if (debug) {
+        console.debug(`GitHub context: ${util.inspect(context)}`);
+    }
 
     // Verify and process configuration file
     const octokit = github.getOctokit(githubToken);
