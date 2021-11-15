@@ -95,7 +95,7 @@ async function run() {
                         body: issueBody(templateData),
                     })
 
-                    console.log(`Created issue "${issue.title}" (${issue.id}) for project "${project.name}" (${project.id})`);
+                    console.log(`Created issue "${issue.title.trim()}" (${issue.id}) for project "${project.name}" (${project.id})`);
 
                     // Create project card, associates issue to project column
                     const { data: card } = await octokit.rest.projects.createCard({
@@ -104,7 +104,7 @@ async function run() {
                         content_id: issue.id,
                     })
 
-                    console.log(`Created project card (${card.id}) to ${card.content_url} for project "${project.name}" (${project.id})`);
+                    console.log(`Created project card (${card.id}) to ${card.content_url.trim()} for project "${project.name}" (${project.id})`);
                 }
             } catch (err) {
                 success = false;
