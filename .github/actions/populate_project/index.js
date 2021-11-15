@@ -32,7 +32,6 @@ async function run() {
         // For projects configured, create supported resources
         const config = yaml.load(fs.readFileSync(configPath));
         let success = true;
-        console.dir(config);
 
         for (const project of config.projects) {
 
@@ -44,16 +43,16 @@ async function run() {
                     body: project.body,
                 });
 
-                console.log(`Created "${createForRepoResponse.name}" project (${createForRepoResponse.id})"`);
+                console.log(`Created "${createForRepoResponse['name']}" project (${createForRepoResponse['id']})"`);
 
                 // Create project columns
                 for (const column of project.columns) {
                     const createColumnResponse = octokit.rest.projects.createColumn({
-                        project_id: createForRepoResponse.id,
+                        project_id: createForRepoResponse['id'],
                         name: column
                     })
 
-                    console.log(`Created "${createColumnResponse.name}" project column (${createColumnResponse.id})"`);
+                    console.log(`Created "${createColumnResponse['name']}" project column (${createColumnResponse['id']})"`);
                 }
 
                 // Create project issues
