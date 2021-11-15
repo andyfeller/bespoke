@@ -8,15 +8,13 @@ on:
 
       init_engagements:
         description: Whether to initialize engagements.
-        type: boolean
         required: false
-        default: "false"
+        default: "no"
 
       debug:
         description: Whether to display debug information.
-        type: boolean
         required: false
-        default: "false"
+        default: "no"
 
 jobs:
   dump_info:
