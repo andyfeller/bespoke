@@ -67,7 +67,7 @@ None
 
 ### Configuration
 
-This action uses a custom YAML schema for tailoring projects and issues for GitHub repositories:
+Contained in the `config-dir` directory, the `config.yml` YAML file describes the projects and issues to populate within a GitHub repository:
 
 ```yaml
 projects:
@@ -104,6 +104,7 @@ projects:
 As seen above:
 
 - `projects` can create 1 or more projects
+- `columns` will appear from left to right
 - `issues` is optional and can create 1 or more issues and project cards
 - `issues` can use [handlebars.js] templating along with the [github context](https://docs.github.com/en/actions/learn-github-actions/contexts#github-context) and `project` resource 
 - `issues` without a `column` attribute will be assigned to the first item in the project's `columns` list
