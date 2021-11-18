@@ -1,6 +1,6 @@
 # populate_project
 
-`populate_project` creates GitHub projects, issues, and cards through [handlebar.js] templating and straight forward YAML configuration.
+`populate_project` creates GitHub projects, issues, and cards through [handlebar.js][handlebars.js] templating and straight forward YAML configuration.
 
 ## Usage
 
@@ -106,7 +106,7 @@ As seen above:
 - `projects` can create 1 or more projects
 - `columns` will appear from left to right
 - `issues` is optional and can create 1 or more issues and project cards
-- `issues` can use [handlebars.js] templating along with the [github context](https://docs.github.com/en/actions/learn-github-actions/contexts#github-context) and `project` resource 
+- `issues` can use [handlebars.js][handlebars.js] templating along with the [github context](https://docs.github.com/en/actions/learn-github-actions/contexts#github-context) and `project` resource 
 - `issues` without a `column` attribute will be assigned to the first item in the project's `columns` list
 
 [handlebars.js]: https://handlebarsjs.com
