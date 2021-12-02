@@ -31,6 +31,7 @@ Leveraging [handlebars templating](https://handlebarsjs.com/) with [`populate_pr
 </dl>
 
 #### Github apps installed with this stack
+
 None
 
 ## Learn more
