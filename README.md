@@ -47,5 +47,3 @@ Learn more about GitHub [REST](https://docs.github.com/en/rest/reference) and [G
 
 ## License
 Unless otherwise noted, this GitHub Stack is distributed under the MIT license found in the [LICENSE](./LICENSE) file.
-
-
